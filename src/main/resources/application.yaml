@@ -1,0 +1,20 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+
+# http://localhost:8080/actuator/prometheus
+
+
+logging:
+  pattern:
+    correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+
+spring:
+  application:
+    name: TJC Demo App
